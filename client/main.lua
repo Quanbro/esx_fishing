@@ -82,7 +82,7 @@ function FishGUI(bool)
 	else
 		BarAnimation = BarAnimation + AnimationSpeed
 	end
-	text(0.4,0.05,0.35, "Vous en avez un, ferrez-le en appuyant sur [E]")
+	text(0.4,0.05,0.35, "You have one, you can do it by pressing [E]")
 end
 
 function PlayAnim(ped,base,sub,nr,time) 
@@ -127,12 +127,12 @@ AddEventHandler('esx_fishing:startFishing', function()
 					end
 
 					IsFishing = true
-					if ShowChatMSG then ESX.ShowNotification("Vous avez lancé votre appât, attendez qu'un poisson morde ...") end
+					if ShowChatMSG then ESX.ShowNotification("You have launched your bait, wait for a fish to bite ...") end
 					RunCodeOnly1Time = true
 					BarAnimation = 0
 
 				else
-					ESX.ShowNotification('Action impossible, vous devez être dans l\'eau')
+					ESX.ShowNotification('Action impossible, you must be in the water')
 				end
 			else
 				ESX.ShowNotification('Action impossible')
@@ -141,7 +141,7 @@ AddEventHandler('esx_fishing:startFishing', function()
 			ESX.ShowNotification('Action impossible')
 		end
 	else
-		ESX.ShowNotification("Vous devez etre poissonier pour pêcher.")
+		ESX.ShowNotification("You must be a fisherman to fish.")
 	end
 end)
 
@@ -182,13 +182,13 @@ Citizen.CreateThread(function()
 				StopAnimTask(GetPed(), 'amb@world_human_stand_fishing@idle_a','idle_c',2.0)
 				Citizen.Wait(200)
 				DeleteEntity(FishRod)
-				if ShowChatMSG then ESX.ShowNotification("Le poisson s'est échappé ...") end
+				if ShowChatMSG then ESX.ShowNotification("The fish escaped ...") end
 			end
 			if IsControlJustPressed(1, Caught_KEY) then
 				if BarAnimation >= SuccessLimit then
 					CFish = false
 					TimerAnimation = 0.1
-					if ShowChatMSG then ESX.ShowNotification("Vous avez attrapé un poisson !") end
+					if ShowChatMSG then ESX.ShowNotification("You caught a fish!") end
 					StopAnimTask(GetPed(), 'amb@world_human_stand_fishing@idle_a','idle_c',2.0)
 					Citizen.Wait(200)
 					DeleteEntity(FishRod)
@@ -201,7 +201,7 @@ Citizen.CreateThread(function()
 					StopAnimTask(GetPed(), 'amb@world_human_stand_fishing@idle_a','idle_c',2.0)
 					Citizen.Wait(200)
 					DeleteEntity(FishRod)
-					if ShowChatMSG then ESX.ShowNotification("Le poisson s'est échappé !") end
+					if ShowChatMSG then ESX.ShowNotification("The fish escaped!") end
 				end
 			end
 		end
