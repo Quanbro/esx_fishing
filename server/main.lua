@@ -15,7 +15,7 @@ ESX.RegisterUsableItem('fishingrod', function(source)
 		TriggerClientEvent('esx_fishing:startFishing', source)
 		-- xPlayer.removeInventoryItem('bait', 1)
 	else 
-		TriggerClientEvent('esx:showNotification', source, "Tu n'as pas assez de appats de poissons.")
+		TriggerClientEvent('esx:showNotification', source, "You do not have enough fish bait!")
 	end
 end)
 
@@ -28,7 +28,7 @@ ESX.RegisterUsableItem('fish', function(source)
 	TriggerClientEvent('esx_status:add', source, 'hunger', 50000)
 	TriggerClientEvent('esx_basicneeds:onEat', source)
 	TriggerClientEvent('esx_fishing:onEatFish', source)
-	TriggerClientEvent('esx:showNotification', source, 'Vous avez utilisé 1x ~b~Poisson~s~')
+	TriggerClientEvent('esx:showNotification', source, 'You used 1x ~b~Fish~s~')
 
 end)
 
